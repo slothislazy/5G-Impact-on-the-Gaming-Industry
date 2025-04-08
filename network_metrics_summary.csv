@@ -1,0 +1,11 @@
+Connection,Game,Mode,Avg RTT (s),Bandwidth (Mbps),Avg Jitter (s),Packet Loss (packets)
+5G,Fortnite,1 Player,0.1389,10.33,0.1726,2858
+5G,Fortnite,2 Players,1.5984,12.58,1.3138,3205
+5G,Forza Horizon 5,1 Player,0.1265,7.31,0.0567,2254
+5G,Forza Horizon 5,2 Players,0.0721,13.33,0.0571,4503
+5G,Mortal Kombat 11,1 Player,0.1495,10.64,0.0496,2086
+Wired,Fortnite,1 Player,0.3525,9.46,0.2196,4074
+Wired,Fortnite,2 Players,0.1620,13.24,0.1580,14181
+Wired,Forza Horizon 5,1 Player,0.3256,6.37,0.3743,4148
+Wired,Forza Horizon 5,2 Players,0.2064,8.37,0.2169,15714
+Wired,Mortal Kombat 11,1 Player,0.1529,10.93,0.0586,3888
