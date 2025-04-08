@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Trends Analysis</title>
+    <style>
+        body {
+            background-color: #d3d3d3;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .chart {
+            margin-bottom: 20px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Gaming Trends Analysis</h1>
+
+    <form method="post">
+        <label for="platform">Select Platform:</label>
+        <select name="platform" id="platform">
+            {% for p in platforms %}
+                <option value="{{ p }}" {% if p == platform %}selected{% endif %}>{{ p }}</option>
+            {% endfor %}
+        </select>
+    
+        <label for="forecast_months">Forecast Months:</label>
+        <input type="number" name="forecast_months" min="1" max="60" value="{{ forecast_months }}" required>
+    
+        <button type="submit">Update</button>
+    </form>
+
+    <div class="chart">
+        <h2>Daily Active Users</h2>
+        {{ dau_plot_html|safe }}
+    </div>
+    
+    <div class="chart">
+        <h2>New Registrations</h2>
+        {{ new_reg_plot_html|safe }}
+    </div>
+    
+    <div class="chart">
+        <h2>Average Session Duration</h2>
+        {{ session_plot_html|safe }}
+    </div>
+    
+    <div class="chart">
+        <h2>Revenue</h2>
+        {{ revenue_plot_html|safe }}
+    </div>
+
+    <div class="chart">
+        <h2>Forecasted Revenue 24 Months</h2>
+        {{ revenue_plot_forecast_html|safe }}
+        <h2>Forecast Evaluation Metrics</h2>
+        <ul>
+            <li><strong>RMSE:</strong> {{ rmse | round(2) }}</li>
+            <li><strong>MAE:</strong> {{ mae | round(2) }}</li>
+            <li><strong>MAPE:</strong> {{ mape | round(2) }}%</li>
+        </ul>
+    </div>
+
+    <div class="chart">
+        <h2>New Registrations by Platform</h2>
+        {{ new_reg_bar_chart_html|safe }}
+    </div>
+
+    <div class="chart">
+        <h2>Revenue Percentage by Gaming Genre</h2>
+        {{ revenue_pie_chart_html|safe }}
+    </div>
+
+    <h1>Network Metrics</h1>
+
+    <div class="chart">
+        <h2>Average RTT (s)</h2>
+        {{ rtt_chart | safe }}
+    </div>
+    
+    <div class="chart">
+        <h2>Bandwidth (Mbps)</h2>
+        {{ bw_chart | safe }}
+    </div>
+
+    <div class="chart">
+        <h2>Average Jitter (s)</h2>
+        {{ jitter_chart | safe }}
+    </div>
+
+    <div class="chart">
+        <h2>Packet Loss</h2>
+        {{ loss_chart | safe }}
+    </div>
+
+    <h1>5G Coverage Map</h1>
+
+    <div class="chart">
+        <h2>5G Coverage Map</h2>
+        <a href="/5g_coverage_map">View 5G Coverage Map</a>
+    </div>
+</body>
+</html>
